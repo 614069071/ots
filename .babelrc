@@ -1,0 +1,13 @@
+{
+  "presets": ["@vue/cli-plugin-babel/preset", ["@vue/babel-preset-jsx", { "injectH": false }]],
+  "plugins": [
+    "lodash",
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}

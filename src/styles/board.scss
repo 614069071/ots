@@ -1,0 +1,389 @@
+.board-item-view-wrapper {
+  display: flex;
+  width: 521px;
+  height: 60px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  user-select: none;
+}
+
+.board-item-view-wrapper.composite {
+  height: 120px;
+}
+
+// 单板名称
+.board-item-name {
+  background-color: #db3d21;
+  width: 90px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+
+  span {
+    display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    transform: scale(0.8);
+    color: #fff;
+  }
+}
+
+// 网灯横显示 √
+.board-link-wrapper {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  font-size: 12px;
+  transform: scale(0.6);
+
+  .board-light {
+    display: flex;
+    align-items: center;
+    height: 12px;
+
+    span.k-name {
+      width: 50px;
+    }
+
+    span.k-name:first-child {
+      padding-right: 4px;
+      text-align: right;
+    }
+
+    span.k-name:last-child {
+      padding-left: 4px;
+      text-align: left;
+    }
+
+    span.k-item {
+      width: 12px;
+      height: 8px;
+      font-size: 0;
+      background-color: #dedede;
+    }
+
+    span.k-item.suc {
+      background-color: #1ef087;
+    }
+
+    span.k-item.war {
+      background-color: #ff6262;
+    }
+
+    .k-item + .k-item {
+      margin-left: 5px;
+    }
+  }
+}
+
+// 网灯竖显示 √
+.board-link-column-wrapper {
+  position: absolute;
+  display: flex;
+  font-size: 12px;
+  transform: scale(0.6);
+
+  .link-light {
+    .link-name {
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .link-square {
+      width: 12px;
+      height: 8px;
+      font-size: 0;
+      margin: 0 auto;
+      background-color: #dedede;
+    }
+
+    .link-square.suc {
+      background-color: #1ef087;
+    }
+
+    .link-square.war {
+      background-color: #ff6262;
+    }
+
+    .link-square + .link-square {
+      margin-top: 2px;
+    }
+  }
+
+  .link-light + .link-light {
+    margin-left: 5px;
+  }
+}
+
+// 光纤 √
+.tx-rx-wrapper {
+  position: absolute;
+  left: 100px;
+  top: -6px;
+  display: flex;
+  font-size: 13px;
+  transform: scale(0.6);
+
+  .tx-rx-inner-item {
+    display: flex;
+
+    .tx-rx-item {
+      i {
+        height: 14px;
+        line-height: 14px;
+        display: block;
+        text-align: center;
+        margin-top: 2px;
+      }
+    }
+
+    .tx-rx-item-main {
+      width: 31px;
+      height: 55px;
+      background: url(../assets/images/board/fiber.png) center/contain no-repeat;
+    }
+
+    .tx-rx-item-main.suc {
+      background-image: url(../assets/images/board/fiber-active.png);
+    }
+  }
+
+  .tx-rx-inner-item + .tx-rx-inner-item {
+    margin-left: 5px;
+  }
+}
+
+// rst √
+.board-rst-wrapper {
+  position: absolute;
+  left: 140px;
+  bottom: 14px;
+  text-align: center;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .rst-name {
+    text-align: center;
+    margin-bottom: 2px;
+  }
+
+  .rst-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #828180;
+    margin: -4px 0 0 7px;
+  }
+}
+
+// console  √
+.board-console-wrapper {
+  position: absolute;
+  left: 100px;
+  bottom: -5px;
+  height: 21px;
+  background: url(../assets/images/board/console.png) top center/42px auto no-repeat;
+  text-align: center;
+  white-space: nowrap;
+  transform: scale(0.6);
+  padding-top: 12px;
+
+  span {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+// tx rx √
+.board-trx-wrapper {
+  position: absolute;
+  bottom: -5px;
+  display: flex;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .trx-item {
+    .trx-item-line {
+      height: 14px;
+      width: 58px;
+      line-height: 14px;
+      white-space: nowrap;
+      padding-left: 40px;
+      box-sizing: border-box;
+
+      span {
+        width: 20px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      i {
+        width: 28px;
+        display: inline-block;
+        border-bottom: 1px solid #333;
+        margin: 0 4px 3px 4px;
+      }
+    }
+
+    .trx-item-line-small {
+      height: 14px;
+      width: 58px;
+      line-height: 14px;
+      white-space: nowrap;
+      padding-left: 19px;
+      box-sizing: border-box;
+
+      span {
+        width: 17px;
+        text-align: center;
+        display: inline-block;
+      }
+
+      i {
+        width: 15px;
+        display: inline-block;
+        border-bottom: 1px solid #333;
+        margin: 0 2px 3px 2px;
+      }
+    }
+
+    .trx-item-guide {
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .trx-item-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2px;
+    }
+
+    .trx-item-main {
+      width: 58px;
+      height: 40px;
+      background: url(../assets/images/board/tx.png) center/contain no-repeat;
+    }
+
+    .trx-item-main.suc {
+      background-image: url(../assets/images/board/tx-active.png);
+    }
+  }
+}
+
+.board-trx-big-wrapper {
+  position: absolute;
+  bottom: -5px;
+  display: flex;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .trx-item {
+    .trx-item-guide {
+      text-align: center;
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .trx-item-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 14px;
+    }
+
+    .trx-item-main {
+      width: 116px;
+      height: 40px;
+      border: 1px solid #000;
+    }
+
+    .trx-item-main.suc {
+      background-color: #ccc;
+    }
+  }
+}
+
+// ETH √
+.board-eth-wrapper {
+  position: absolute;
+  display: flex;
+  font-size: 12px;
+  transform: scale(0.7);
+
+  .eth-item {
+    .eth-item-main {
+      width: 52px;
+      height: 40px;
+      background: url(../assets/images/board/eth.png) center/contain no-repeat;
+    }
+
+    .eth-item-main.suc {
+      background-image: url(../assets/images/board/eth-active.png);
+    }
+
+    .eth-item-title {
+      text-align: center;
+    }
+  }
+}
+
+// usb √
+.board-usb-wrapper {
+  position: absolute;
+  font-size: 12px;
+  // height: 21px;
+  transform: scale(0.6);
+
+  .usb-title {
+    text-align: center;
+  }
+
+  .usb-main {
+    width: 43px;
+    height: 16px;
+    background: url(../assets/images/board/console.png) center/42px no-repeat;
+  }
+}
+
+.board-qsfp-wrapper {
+  position: absolute;
+
+  .board-qsfp-k {
+    width: 70px;
+    height: 30px;
+    background-color: #dde2cd;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #000;
+  }
+
+  .board-qsfp-n {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+}
+
+.board-cfp2-wrapper {
+  position: absolute;
+
+  .cfp2-k {
+    width: 100px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .cfp2-k.suc {
+    background-color: #ccc;
+  }
+
+  .cfp2-n {
+    display: flex;
+    height: 14px;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+}

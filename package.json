@@ -1,0 +1,51 @@
+{
+  "name": "vue-otn2000",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:w\" \"npm run dev:x\"",
+    "dev:w": "vue-cli-service serve --mode deve",
+    "dev:x": "vue-cli-service serve --mode test",
+    "build": "vue-cli-service build --mode prod",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "concurrently": "^7.0.0",
+    "core-js": "^3.6.4",
+    "cross-env": "^7.0.3",
+    "element-ui": "^2.13.0",
+    "js-cookie": "^2.2.1",
+    "normalize.css": "^8.0.1",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.22.2",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-plugin-vuex": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-component": "^1.1.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "filemanager-webpack-plugin": "^6.1.7",
+    "lodash": "^4.17.21",
+    "lodash-webpack-plugin": "^0.11.6",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
