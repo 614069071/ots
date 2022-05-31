@@ -115,7 +115,7 @@ export default {
       const { boardname, slot } = this.uploadBoard;
       const data = { otn2000: { boardname, slot, type: "firmware_update" } };
 
-      this.isStart = true;
+      // this.isStart = true;
 
       //  timeout: 1000,
 
@@ -125,37 +125,81 @@ export default {
           console.log("start res", res);
           clearTimeout(pupurExcutorTimer);
 
-          if (res.otn2000_ack.code === 0) {
-            // 成功
-            // alert(this.$t("UPGRADE.UPGRADE_SUC"));
-            this.pupurHint = this.$t("UPGRADE.UPGRADE_SUC");
+          // if (res.otn2000_ack.code === 0) {
+          //   // 成功
+          //   // alert(this.$t("UPGRADE.UPGRADE_SUC"));
+          //   this.pupurHint = this.$t("UPGRADE.UPGRADE_SUC");
 
-            setTimeout(() => {
-              this.pupurHint = "单板重启中...";
+          //   setTimeout(() => {
+          //     this.pupurHint = "单板重启中...";
+          //     setTimeout(() => {
+          //       this.getBoardList();
+          //     }, 5000);
+          //   }, 1000);
+          // } else {
+          //   /*
+          //     @失败
+          //     1 发送文件长度失败
+          //     2 发送MD5SUN失败
+          //     3 发送文件数据失败
+          //     4 接受单板响应失败
+          //     5 flash出错
+          //     6 md5sum校验出错
+          //     7 位置错误
+          //    */
+          //   // alert(this.$t("UPGRADE.UPGRADE_ERR"));
+          //   this.pupurHint = this.$t("UPGRADE.UPGRADE_ERR");
+          // }
+          let hints = "";
+          let dataInfo = res.otn2000_ack.code;
+          console.log(dataInfo);
+          switch (dataInfo) {
+            case 0:
               setTimeout(() => {
-                this.getBoardList();
-              }, 5000);
-            }, 1000);
-          } else {
-            /* 
-              @失败
-              1 发送文件长度失败 
-              2 发送MD5SUN失败 
-              3 发送文件数据失败 
-              4 接受单板响应失败 
-              5 flash出错 
-              6 md5sum校验出错 
-              7 位置错误
-             */
-            // alert(this.$t("UPGRADE.UPGRADE_ERR"));
-            this.pupurHint = this.$t("UPGRADE.UPGRADE_ERR");
+                this.pupurHint = "单板重启中...";
+                setTimeout(() => {
+                  this.getBoardList();
+                }, 5000);
+              }, 1000);
+              break;
+            case 1:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN1");
+              break;
+            case 2:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN2");
+              break;
+            case 3:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN3");
+              break;
+            case 4:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN4");
+              break;
+            case 5:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN5");
+              break;
+            case 6:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN6");
+              break;
+            case 7:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN7");
+              break;
+            case 8:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN8");
+              break;
+            case 9:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN9");
+              break;
+            default:
+              hints = this.$t("UPGRADE.UPGRADE_RETURN10");
+              break;
           }
+          this.$alert("", hints, {});
         })
         .catch(err => {
           console.log("start err", err);
           this.pupurHint = this.$t("UPGRADE.UPGRADE_ERR");
           setTimeout(() => {
-            this.isStart = false;
+            // this.isStart = false;
           }, 1000);
         })
         .finally(() => {
